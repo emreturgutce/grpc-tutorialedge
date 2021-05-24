@@ -4,10 +4,24 @@ package chat;
 
 option go_package = "/;chat";
 
-message Message {
-  string body = 1;
+message Message {}
+
+message Todo {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
 }
 
-service ChatService {
-  rpc SayHello(Message) returns (Message) {}
+message Todos {
+  repeated Todo todos = 1;
+}
+
+message TodoId {
+  int32 id = 1;
+}
+
+service TodoService {
+  rpc AddTodo(Todo) returns (Message) {}
+  rpc GetTodos(Message) returns (Todos) {}
+  rpc GetTodoById(TodoId) returns (Todo) {}
 }

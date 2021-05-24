@@ -28,8 +28,6 @@ type Message struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
-
-	Body string `protobuf:"bytes,1,opt,name=body,proto3" json:"body,omitempty"`
 }
 
 func (x *Message) Reset() {
@@ -64,24 +62,188 @@ func (*Message) Descriptor() ([]byte, []int) {
 	return file_chat_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Message) GetBody() string {
+type Todo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id          int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title       string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+}
+
+func (x *Todo) Reset() {
+	*x = Todo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Todo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Todo) ProtoMessage() {}
+
+func (x *Todo) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Todo.ProtoReflect.Descriptor instead.
+func (*Todo) Descriptor() ([]byte, []int) {
+	return file_chat_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Todo) GetId() int32 {
 	if x != nil {
-		return x.Body
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Todo) GetTitle() string {
+	if x != nil {
+		return x.Title
 	}
 	return ""
+}
+
+func (x *Todo) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type Todos struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Todos []*Todo `protobuf:"bytes,1,rep,name=todos,proto3" json:"todos,omitempty"`
+}
+
+func (x *Todos) Reset() {
+	*x = Todos{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Todos) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Todos) ProtoMessage() {}
+
+func (x *Todos) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Todos.ProtoReflect.Descriptor instead.
+func (*Todos) Descriptor() ([]byte, []int) {
+	return file_chat_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Todos) GetTodos() []*Todo {
+	if x != nil {
+		return x.Todos
+	}
+	return nil
+}
+
+type TodoId struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int32 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *TodoId) Reset() {
+	*x = TodoId{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_chat_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TodoId) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TodoId) ProtoMessage() {}
+
+func (x *TodoId) ProtoReflect() protoreflect.Message {
+	mi := &file_chat_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TodoId.ProtoReflect.Descriptor instead.
+func (*TodoId) Descriptor() ([]byte, []int) {
+	return file_chat_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *TodoId) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
 }
 
 var File_chat_proto protoreflect.FileDescriptor
 
 var file_chat_proto_rawDesc = []byte{
 	0x0a, 0x0a, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x63, 0x68,
-	0x61, 0x74, 0x22, 0x1d, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x12, 0x0a,
-	0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64,
-	0x79, 0x32, 0x39, 0x0a, 0x0b, 0x43, 0x68, 0x61, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x12, 0x2a, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x0d, 0x2e, 0x63,
-	0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a, 0x0d, 0x2e, 0x63, 0x68,
-	0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06,
-	0x2f, 0x3b, 0x63, 0x68, 0x61, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x74, 0x22, 0x09, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x4e, 0x0a,
+	0x04, 0x54, 0x6f, 0x64, 0x6f, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x64,
+	0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x29, 0x0a,
+	0x05, 0x54, 0x6f, 0x64, 0x6f, 0x73, 0x12, 0x20, 0x0a, 0x05, 0x74, 0x6f, 0x64, 0x6f, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0a, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x54, 0x6f, 0x64,
+	0x6f, 0x52, 0x05, 0x74, 0x6f, 0x64, 0x6f, 0x73, 0x22, 0x18, 0x0a, 0x06, 0x54, 0x6f, 0x64, 0x6f,
+	0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02,
+	0x69, 0x64, 0x32, 0x8a, 0x01, 0x0a, 0x0b, 0x54, 0x6f, 0x64, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x12, 0x26, 0x0a, 0x07, 0x41, 0x64, 0x64, 0x54, 0x6f, 0x64, 0x6f, 0x12, 0x0a, 0x2e,
+	0x63, 0x68, 0x61, 0x74, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x1a, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74,
+	0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00, 0x12, 0x28, 0x0a, 0x08, 0x47, 0x65,
+	0x74, 0x54, 0x6f, 0x64, 0x6f, 0x73, 0x12, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x1a, 0x0b, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x54, 0x6f, 0x64,
+	0x6f, 0x73, 0x22, 0x00, 0x12, 0x29, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x54, 0x6f, 0x64, 0x6f, 0x42,
+	0x79, 0x49, 0x64, 0x12, 0x0c, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x49,
+	0x64, 0x1a, 0x0a, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x22, 0x00, 0x42,
+	0x08, 0x5a, 0x06, 0x2f, 0x3b, 0x63, 0x68, 0x61, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -96,18 +258,26 @@ func file_chat_proto_rawDescGZIP() []byte {
 	return file_chat_proto_rawDescData
 }
 
-var file_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_chat_proto_goTypes = []interface{}{
 	(*Message)(nil), // 0: chat.Message
+	(*Todo)(nil),    // 1: chat.Todo
+	(*Todos)(nil),   // 2: chat.Todos
+	(*TodoId)(nil),  // 3: chat.TodoId
 }
 var file_chat_proto_depIdxs = []int32{
-	0, // 0: chat.ChatService.SayHello:input_type -> chat.Message
-	0, // 1: chat.ChatService.SayHello:output_type -> chat.Message
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: chat.Todos.todos:type_name -> chat.Todo
+	1, // 1: chat.TodoService.AddTodo:input_type -> chat.Todo
+	0, // 2: chat.TodoService.GetTodos:input_type -> chat.Message
+	3, // 3: chat.TodoService.GetTodoById:input_type -> chat.TodoId
+	0, // 4: chat.TodoService.AddTodo:output_type -> chat.Message
+	2, // 5: chat.TodoService.GetTodos:output_type -> chat.Todos
+	1, // 6: chat.TodoService.GetTodoById:output_type -> chat.Todo
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_chat_proto_init() }
@@ -128,6 +298,42 @@ func file_chat_proto_init() {
 				return nil
 			}
 		}
+		file_chat_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Todo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Todos); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_chat_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TodoId); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -135,7 +341,7 @@ func file_chat_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_chat_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -157,72 +363,144 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// ChatServiceClient is the client API for ChatService service.
+// TodoServiceClient is the client API for TodoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type ChatServiceClient interface {
-	SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
+type TodoServiceClient interface {
+	AddTodo(ctx context.Context, in *Todo, opts ...grpc.CallOption) (*Message, error)
+	GetTodos(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Todos, error)
+	GetTodoById(ctx context.Context, in *TodoId, opts ...grpc.CallOption) (*Todo, error)
 }
 
-type chatServiceClient struct {
+type todoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChatServiceClient(cc grpc.ClientConnInterface) ChatServiceClient {
-	return &chatServiceClient{cc}
+func NewTodoServiceClient(cc grpc.ClientConnInterface) TodoServiceClient {
+	return &todoServiceClient{cc}
 }
 
-func (c *chatServiceClient) SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *todoServiceClient) AddTodo(ctx context.Context, in *Todo, opts ...grpc.CallOption) (*Message, error) {
 	out := new(Message)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/chat.TodoService/AddTodo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ChatServiceServer is the server API for ChatService service.
-type ChatServiceServer interface {
-	SayHello(context.Context, *Message) (*Message, error)
+func (c *todoServiceClient) GetTodos(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Todos, error) {
+	out := new(Todos)
+	err := c.cc.Invoke(ctx, "/chat.TodoService/GetTodos", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedChatServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedChatServiceServer struct {
+func (c *todoServiceClient) GetTodoById(ctx context.Context, in *TodoId, opts ...grpc.CallOption) (*Todo, error) {
+	out := new(Todo)
+	err := c.cc.Invoke(ctx, "/chat.TodoService/GetTodoById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-func (*UnimplementedChatServiceServer) SayHello(context.Context, *Message) (*Message, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+// TodoServiceServer is the server API for TodoService service.
+type TodoServiceServer interface {
+	AddTodo(context.Context, *Todo) (*Message, error)
+	GetTodos(context.Context, *Message) (*Todos, error)
+	GetTodoById(context.Context, *TodoId) (*Todo, error)
 }
 
-func RegisterChatServiceServer(s *grpc.Server, srv ChatServiceServer) {
-	s.RegisterService(&_ChatService_serviceDesc, srv)
+// UnimplementedTodoServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedTodoServiceServer struct {
 }
 
-func _ChatService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func (*UnimplementedTodoServiceServer) AddTodo(context.Context, *Todo) (*Message, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddTodo not implemented")
+}
+func (*UnimplementedTodoServiceServer) GetTodos(context.Context, *Message) (*Todos, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTodos not implemented")
+}
+func (*UnimplementedTodoServiceServer) GetTodoById(context.Context, *TodoId) (*Todo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTodoById not implemented")
+}
+
+func RegisterTodoServiceServer(s *grpc.Server, srv TodoServiceServer) {
+	s.RegisterService(&_TodoService_serviceDesc, srv)
+}
+
+func _TodoService_AddTodo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Todo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TodoServiceServer).AddTodo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chat.TodoService/AddTodo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TodoServiceServer).AddTodo(ctx, req.(*Todo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TodoService_GetTodos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).SayHello(ctx, in)
+		return srv.(TodoServiceServer).GetTodos(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/SayHello",
+		FullMethod: "/chat.TodoService/GetTodos",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).SayHello(ctx, req.(*Message))
+		return srv.(TodoServiceServer).GetTodos(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _ChatService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "chat.ChatService",
-	HandlerType: (*ChatServiceServer)(nil),
+func _TodoService_GetTodoById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TodoId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TodoServiceServer).GetTodoById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/chat.TodoService/GetTodoById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TodoServiceServer).GetTodoById(ctx, req.(*TodoId))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _TodoService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "chat.TodoService",
+	HandlerType: (*TodoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SayHello",
-			Handler:    _ChatService_SayHello_Handler,
+			MethodName: "AddTodo",
+			Handler:    _TodoService_AddTodo_Handler,
+		},
+		{
+			MethodName: "GetTodos",
+			Handler:    _TodoService_GetTodos_Handler,
+		},
+		{
+			MethodName: "GetTodoById",
+			Handler:    _TodoService_GetTodoById_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
